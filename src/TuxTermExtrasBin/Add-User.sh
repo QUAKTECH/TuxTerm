@@ -18,25 +18,29 @@ decrypt_base64() {
 }
 
 Add-User() {
-    echo -n -e "[ Enter new user username ]\n: "
-    read newusername
-    echo -n -e "[ Enter new user PIN/Password ]\n: "
-    read -s newpassword  
-    echo
-
-    # Encrypt the new password
-    encrypted_var=$(encrypt_base64 "$newpassword")
-
-    # Include source ./idk.sh if needed for decryption (not clear from the provided context)
-    # source ./idk.sh "$encrypted_var"
-
-    newuser="\t[$newusername]=\"$encrypted_var\""
-
-    # Update Credentials.sh with the new user and encrypted password
-    if sed -i $'/^)/i\\\n'"$newuser" src/TTLM/.Credentials.sh; then
-        echo "User $newusername added to Credentials.sh"
-    else
-        echo -n -e "\n${RED}[ ERROR : S(U*S)0001 ] : Failed to add user $newusername to Credentials.sh (See README.md for for info on Errors.)${NC}\n"
+    if check_root; then
+        echo -n -e "[ Enter new user username ]\n: "
+        read newusername
+        echo -n -e "[ Enter new user PIN/Password ]\n: "
+        read -s newpassword  
+        echo
+    
+        # Encrypt the new password
+        encrypted_var=$(encrypt_base64 "$newpassword")
+    
+        # Include source ./idk.sh if needed for decryption (not clear from the provided context)
+        # source ./idk.sh "$encrypted_var"
+    
+        newuser="\t[$newusername]=\"$encrypted_var\""
+    
+        # Update Credentials.sh with the new user and encrypted password
+        if sed -i $'/^)/i\\\n'"$newuser" src/TTLM/.Credentials.sh; then
+            echo "User $newusername added to Credentials.sh"
+        else
+            echo -n -e "\n${RED}[ ERROR : S(U*S)0001 ] : Failed to add user $newusername to Credentials.sh (See README.md for for info on Errors.)${NC}\n"
+        fi
+    else 
+        echo -n -e "\n${RED}[ ERROR : P(U)0002 ] : You need to be Root user to use this. (See README.md for for info on Errors.)${NC}\n"
     fi
-}
+}   
 

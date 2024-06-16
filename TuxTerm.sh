@@ -38,7 +38,18 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
+
+
 currentuser="$username"
+
+check_root() {
+    if [ "$currentuser" != "dude1" ]; then
+        return 1
+    else
+        return 0
+    fi
+}
+
 
 clear
 sleep 1
@@ -53,19 +64,28 @@ do
     echo -n -e "$(pwd)\n: "
     read Command
 
-    if [[ "$Command" == "add-user" || "$Command" == "user-add" ]]; then
-        Add-User
-    elif [[ "$Command" == "ip-check" ]]; then
-        IPStatusChecker
-    elif [[ "$Command" == "whoami" ]]; then
-        echo "$WHOAMI"
-    elif [[ "$Command" == "whereami" ]]; then
-        echo "$WHEREAMI"
-    elif [[ "$Command" == "date" ]]; then
-        echo "$DATETIME"
-    elif [[ "$Command" == "reboot" ]]; then
-        Reboot
-    else
-        echo "Invalid Command"
-    fi
+    case "$Command" in
+        add-user|user-add)
+            Add-User
+            ;;
+        ip-check)
+            IPStatusChecker
+            ;;
+        whoami)
+            echo "$WHOAMI"
+            ;;
+        whereami)
+            echo "$WHEREAMI"
+            ;;
+        date)
+            echo "$DATETIME"
+            ;;
+        reboot)
+            Reboot
+            ;;
+        *)
+            echo "Invalid Command"
+            ;;
+    esac
 done
+
