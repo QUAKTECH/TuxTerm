@@ -12,7 +12,6 @@ LOGMGR() {
     echo -n -e "[ Enter your username ]\n: "
     read username
 
-    # Check if username exists in the array
     if [[ -z "${users[$username]}" ]]; then
         echo "Invalid username"
         return 1
@@ -23,7 +22,6 @@ LOGMGR() {
         echo -n -e "[ Enter your PIN ]\n: "
         read -s password
 
-        # Validate the password
         if [[ "$decrypted_var" == "$password" ]]; then
             echo -e "\nWelcome $username\n"
             return 0
@@ -34,4 +32,12 @@ LOGMGR() {
     fi
 }
 
+if [[ "$1" != "login" ]]; then
+    echo "Usage: $0 login"
+    exit 1
+fi
 
+if [[ $? -ne 0 ]]; then
+    echo "Login failed. Exiting."
+    exit 1
+fi

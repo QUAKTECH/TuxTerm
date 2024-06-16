@@ -21,7 +21,10 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-Version=0.2
+declare -A Versions=(
+    [tuxterm]="Version 0.3.0"
+    [asp-licence]="Version 2.0.0"
+)
 
 # Sources
 source ./src/TTLM/LOGMGR.sh
@@ -32,13 +35,10 @@ source ./src/Commands.sh
 source ./src/TuxTermExtrasBin/Reboot.sh
 
 LOGMGR
-
 if [[ $? -ne 0 ]]; then
     echo "Login failed. Exiting."
     exit 1
 fi
-
-
 
 currentuser="$username"
 
@@ -50,7 +50,6 @@ check_root() {
     fi
 }
 
-
 clear
 sleep 1
 echo "============="
@@ -61,8 +60,8 @@ clear
 
 while true
 do
-    echo -n -e "$(pwd)\n: "
-    read Command
+    echo -n -e "> "
+    read -r Command Argument
 
     case "$Command" in
         add-user|user-add)
@@ -80,6 +79,16 @@ do
         date)
             echo "$DATETIME"
             ;;
+        tuxterm|asp-licence)
+            if [[ "$Argument" == "--version" ]]; then
+                echo "${Versions[$Command]}"
+            else
+                echo "Invalid argument. Use --version to get the version."
+            fi
+            ;;
+        ?)
+            echo "help"
+            ;;
         reboot)
             Reboot
             ;;
@@ -88,4 +97,3 @@ do
             ;;
     esac
 done
-
