@@ -20,7 +20,7 @@ A cool, simple suite of bash scripts written in Bash to be cool and fun. (It's c
 
 ### License
 
-BrainTerm uses the GNU GPL Version 3 or later.
+TuxTerm is dual licensed under the QUAKTECH License v2 & MIT license
 
 ### Directory's Explained
 
