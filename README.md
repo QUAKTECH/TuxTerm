@@ -40,7 +40,7 @@ You should see something like this:
 > [ Enter your PIN ] <br>
 > :
 
-In [Credentials.sh](https://github.com/Apache-Software-Productions/TuxTerm/blob/main/src/TTLM/.Credentials.sh), you will find an array of users:
+In [Credentials.sh](https://github.com/QUAKTECH/TuxTerm/blob/main/src/TTLM/.Credentials.sh), you will find an array of users:
 [example]="xxx" the x's are pace holders for encrypted text in base64 which PIN/Passwords are encrypted in, in TuxTerm. User 'hi' = 1, User 'dude1'(Root) = 0913 (Passwords for users).
 
 This is the format for user's name and PIN/Password. You can use anyone you see; just note that text wrapped in `[]`s is the username, while text and/or numbers in `""`s are the PIN/Password.
@@ -49,13 +49,13 @@ After you have signed in, you have these options so far:
 
 * `reboot` - A cool-looking reboot screen.
 * `ipcheck` - Runs a script that checks if an IP is up.
-* `add-user` / `user-add` - adds a new user to [Credentials.sh](https://github.com/Apache-Software-Productions/TuxTerm/blob/main/src/TTLM/.Credentials.sh).
+* `add-user` / `user-add` - adds a new user to [Credentials.sh](https://github.com/QUAKTECH/TuxTerm/blob/main/src/TTLM/.Credentials.sh).
 * `whoami` - Whoami.
 * `whereami` - Pwd.
 * `date` - Displays current date.
 
 #### Creating a new user
-After typing 'add-user' or 'user-add', the script will prompt you to enter a username and PIN/Password then it will encrypt in Base64, after which the data will be appended to [Credentials.sh](https://github.com/Apache-Software-Productions/TuxTerm/blob/main/src/TTLM/.Credentials.sh).
+After typing 'add-user' or 'user-add', the script will prompt you to enter a username and PIN/Password then it will encrypt in Base64, after which the data will be appended to [Credentials.sh](https://github.com/QUAKTECH/TuxTerm/blob/main/src/TTLM/.Credentials.sh).
 
 ### Error Format explaind
 
