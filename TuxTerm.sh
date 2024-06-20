@@ -2,7 +2,7 @@
 # Authors of TuxTerm: Aeternusdio.
 # The MIT License (MIT)
 #
-# Copyright (c) 2024 Apache Software Production. (ASP)
+# Copyright (c) 2024 QUAKTECH
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@
 # SOFTWARE.
 declare -A Versions=(
     [tuxterm]="Version 0.3.0"
-    [asp-licence]="Version 2.0.0"
+    [quaktech license]="Version 2.0.0"
 )
 
 # Sources
