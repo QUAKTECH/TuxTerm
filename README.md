@@ -16,8 +16,7 @@
 A cool, simple suite of bash scripts written in Bash to be cool and fun. (It's called 'TuxTerm' because I didn't have any other name and i like Linux.)
 
 ### Installation
-bash
-git clone https://github.com/aeternusdio/TuxTerm
+```git clone https://github.com/QUAKTECH/TuxTerm```
 
 ### License
 
